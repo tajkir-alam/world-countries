@@ -5,7 +5,6 @@ const loadCountries = (countryIs) =>{
     .then(res => res.json())
     .then(data => displayCountries(data));
 }
-
 const displayCountries = countries =>{
     countries.slice(0, 15).forEach(country => {
         allCountries(country);
@@ -18,7 +17,6 @@ const showAllBtn = () => {
     .then(res => res.json())
     .then(data => showAll(data));
 }
-
 const showAll = (countries) => {
     countries.forEach(country => {
             allCountries(country);
@@ -48,6 +46,7 @@ const oceania = () => {
 
 const searchBtn = () => {
     const searchField = document.getElementById('search-field').value;
+    document.getElementById('card-container').innerHTML = "";
     loadCountries(searchField);
 }
 
