@@ -1,3 +1,4 @@
+let searchTxt = 'americas';
 const loadCountries = (countryIs) =>{
     const URL = `https://restcountries.com/v3.1/region/${countryIs}`
     fetch(URL)
@@ -6,28 +7,51 @@ const loadCountries = (countryIs) =>{
 }
 
 const displayCountries = countries =>{
-    countries.slice(0, 12).forEach(country => {
+    countries.slice(0, 15).forEach(country => {
         allCountries(country);
+    });
+}
+
+const showAllBtn = () => {
+    const URL = `https://restcountries.com/v3.1/region/${searchTxt}`
+    fetch(URL)
+    .then(res => res.json())
+    .then(data => showAll(data));
+}
+
+const showAll = (countries) => {
+    countries.forEach(country => {
+            allCountries(country);
     });
 }
 
 const africa = () => {
     document.getElementById('card-container').innerHTML = "";
-    const continents = 'africa';
-    loadCountries(continents);
+    loadCountries('africa');
+}
+const america = () => {
+    document.getElementById('card-container').innerHTML = "";
+    loadCountries('americas');
+}
+const asia = () => {
+    document.getElementById('card-container').innerHTML = "";
+    loadCountries('asia');
+}
+const europe = () => {
+    document.getElementById('card-container').innerHTML = "";
+    loadCountries('europe');
+}
+const oceania = () => {
+    document.getElementById('card-container').innerHTML = "";
+    loadCountries('oceania');
+}
+
+const searchBtn = () => {
+    const searchField = document.getElementById('search-field').value;
+    loadCountries(searchField);
 }
 
 
-
-
-
-const showAll = () => {
-    countries.forEach(country => {
-        allCountries(country);
-    });
-}
-
-
-loadCountries('americas')
+loadCountries(searchTxt)
 
 

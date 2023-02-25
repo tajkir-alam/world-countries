@@ -1,5 +1,4 @@
 function allCountries(country){
-    console.log(country);
     const cardContainer = document.getElementById('card-container');
     const {name:{common}, flags:{png}} = country;
     const cardContent = document.createElement('div');
