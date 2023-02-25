@@ -6,27 +6,28 @@ const loadCountries = (countryIs) =>{
 }
 
 const displayCountries = countries =>{
-    const cardContainer = document.getElementById('card-container');
-    countries.slice(0, 50).forEach(country => {
-        console.log(country);
-        const {name:{common}, flags:{png}} = country;
-        const cardContent = document.createElement('div');
-        cardContent.classList.add('col');
-        cardContent.innerHTML = `
-            <div class="card h-100">
-                <img src="${png}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${common}</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        `
-        cardContainer.appendChild(cardContent);
+    countries.slice(0, 12).forEach(country => {
+        allCountries(country);
     });
 }
 
-// const dropdownContinents = continents => {
-//     document.getElementById
-// }
+const africa = () => {
+    document.getElementById('card-container').innerHTML = "";
+    const continents = 'africa';
+    loadCountries(continents);
+}
 
-loadCountries('asia')
+
+
+
+
+const showAll = () => {
+    countries.forEach(country => {
+        allCountries(country);
+    });
+}
+
+
+loadCountries('americas')
+
+
