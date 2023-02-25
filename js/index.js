@@ -25,5 +25,8 @@ const displayCountries = countries =>{
     });
 }
 
+// const dropdownContinents = continents => {
+//     document.getElementById
+// }
 
 loadCountries('asia')
