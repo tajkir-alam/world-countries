@@ -12,7 +12,7 @@
 
             <!-- Nav Section -->
             <section class="container d-flex justify-content-between">
-                <div class="d-flex">
+                <div class="d-flex gap-3 align-items-center">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Dropdown button
@@ -24,6 +24,9 @@
                             <li onclick="europe()" class="dropdown-item">Europe</li>
                             <li onclick="oceania()" class="dropdown-item">Oceania</li>
                         </ul>
+                    </div>
+                    <div id="spinner" class="spinner-border d-none" role="status">
+                        <span class="visually-hidden">Loading...</span>
                     </div>
                 </div>
                 <div class="right-nav d-flex gap-2" role="search">

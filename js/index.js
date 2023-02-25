@@ -1,9 +1,13 @@
 let searchTxt = 'americas';
 const loadCountries = (countryIs) =>{
+    searchTxt = countryIs;
     const URL = `https://restcountries.com/v3.1/region/${countryIs}`
+    document.getElementById('spinner').classList.remove('d-none');
     fetch(URL)
     .then(res => res.json())
-    .then(data => displayCountries(data));
+    .then(data => {
+    document.getElementById('spinner').classList.add('d-none');
+        displayCountries(data)});
 }
 const displayCountries = countries =>{
     countries.slice(0, 15).forEach(country => {
@@ -18,30 +22,30 @@ const showAllBtn = () => {
     .then(data => showAll(data));
 }
 const showAll = (countries) => {
-    countries.forEach(country => {
+    countries.slice(15, countries.length).forEach(country => {
             allCountries(country);
     });
 }
 
 const africa = () => {
-    document.getElementById('card-container').innerHTML = "";
     loadCountries('africa');
+    document.getElementById('card-container').innerHTML = "";
 }
 const america = () => {
-    document.getElementById('card-container').innerHTML = "";
     loadCountries('americas');
+    document.getElementById('card-container').innerHTML = "";
 }
 const asia = () => {
-    document.getElementById('card-container').innerHTML = "";
     loadCountries('asia');
+    document.getElementById('card-container').innerHTML = "";
 }
 const europe = () => {
-    document.getElementById('card-container').innerHTML = "";
     loadCountries('europe');
+    document.getElementById('card-container').innerHTML = "";
 }
 const oceania = () => {
-    document.getElementById('card-container').innerHTML = "";
     loadCountries('oceania');
+    document.getElementById('card-container').innerHTML = "";
 }
 
 const searchBtn = () => {
